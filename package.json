@@ -1,0 +1,58 @@
+{
+  "name": "@cloakwp/react",
+  "version": "0.0.1",
+  "description": "CloakWP utilities + components for the React ecosystem.",
+  "main": "dist/index",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "import": "./dist/index.d.ts"
+    }
+  },
+  "scripts": {
+    "dev": "tsc -p tsconfig.json -w",
+    "build": "npm run build-ts",
+    "build-ts": "tsc-silent -p tsconfig.json --suppress",
+    "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist",
+    "zzz-postpublish": "git push && git push --tags"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cloak-labs/cloakwp-react.git"
+  },
+  "keywords": [
+    "wordpress",
+    "wp",
+    "cloakwp",
+    "cloak",
+    "react",
+    "headless",
+    "decoupled"
+  ],
+  "author": "Kaelan Smith",
+  "license": "LGPL-3.0-only",
+  "bugs": {
+    "url": "https://github.com/cloak-labs/cloakwp-react/issues"
+  },
+  "homepage": "https://github.com/cloak-labs/cloakwp-react#readme",
+  "devDependencies": {
+    "@types/node": "^18.18.1",
+    "@types/react": "^18.2.37",
+    "@types/react-dom": "^18.2.8",
+    "tsc-watch": "^5.0.3",
+    "typescript": "^5.3.2"
+  },
+  "peerDependencies": {
+    "cloakwp": ">= 0.3.8",
+    "html-react-parser": "3.x",
+    "react": ">= 17.0.2",
+    "react-dom": ">= 17.0.2"
+  },
+  "dependencies": {
+    "@cloakui/styles": "workspace:*",
+    "@cloakui/react-primitives": "workspace:*",
+    "@radix-ui/react-slot": "^1.0.2",
+    "class-variance-authority": "^0.7.0"
+  }
+}
