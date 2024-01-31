@@ -18,7 +18,7 @@ import {
   WPVariantsRouter,
 } from "cloakwp";
 
-type ReactComponent = React.ComponentType;
+type ReactComponent = React.ComponentType<any>;
 
 export type WPBlockRendererConfigReact<TBlockData = RestApiBlockData> =
   WPBlockRendererConfig<ReactComponent, TBlockData>;
@@ -42,8 +42,9 @@ export type WPVariantsRouterReact<TBlockData = RestApiBlockData> =
   WPVariantsRouter<ReactComponent, TBlockData>;
 
 export type WPSingleBlockConfigWithVariantsReact<
-  TBlockData = RestApiBlockData
-> = WPSingleBlockConfigWithVariants<ReactComponent, TBlockData>;
+  TBlockData = RestApiBlockData,
+  TProps = EmptyObjectOrRecord
+> = WPSingleBlockConfigWithVariants<ReactComponent, TProps, TBlockData>;
 
 export type WPSingleBlockConfigReact<TBlockData = RestApiBlockData> =
   WPSingleBlockConfig<ReactComponent, TBlockData>;
