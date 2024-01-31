@@ -51,7 +51,7 @@
   },
   "dependencies": {
     "@cloakui/styles": "^0.0.1",
-    "@cloakui/react-primitives": "^0.0.3",
+    "@cloakui/react-primitives": "^0.0.4",
     "@radix-ui/react-slot": "^1.0.2",
     "class-variance-authority": "^0.7.0"
   },
