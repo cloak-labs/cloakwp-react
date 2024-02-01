@@ -50,10 +50,8 @@
     "react-dom": ">= 17.0.2"
   },
   "dependencies": {
-    "@cloakui/styles": "^0.0.1",
-    "@cloakui/react-primitives": "^0.0.4",
-    "@radix-ui/react-slot": "^1.0.2",
-    "class-variance-authority": "^0.7.0"
+    "@cloakui/styles": "^0.1.0",
+    "@cloakui/react-primitives": "^0.0.5"
   },
   "publishConfig": {
     "access": "public"
