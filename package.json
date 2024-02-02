@@ -44,14 +44,14 @@
     "typescript": "^5.3.2"
   },
   "peerDependencies": {
-    "cloakwp": ">= 0.4.1",
+    "@cloakui/styles": ">= 0.2.0",
+    "cloakwp": ">= 0.4.3",
     "html-react-parser": "5.x",
     "react": ">= 17.0.2",
     "react-dom": ">= 17.0.2"
   },
   "dependencies": {
-    "@cloakui/styles": "^0.1.0",
-    "@cloakui/react-primitives": "^0.0.5"
+    "@cloakui/react-primitives": "^0.0.6"
   },
   "publishConfig": {
     "access": "public"
