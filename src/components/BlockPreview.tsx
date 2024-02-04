@@ -1,30 +1,27 @@
+import { useEffect, useMemo, useState } from "react";
 import {
-  RestApiBlockData,
-  getCMSInstance,
   sendBlockHeightToWP,
   handleWPBlockIframeMessage,
   watchForDocumentHeightChanges,
+  type RestApiBlockData,
 } from "cloakwp";
-import { useEffect, useMemo, useState } from "react";
-import { WPBlocksConfigReact } from "../types";
+import { type WPReactBlockRenderer } from "../WPReactBlockRenderer";
 
 export function BlockPreview({
   data,
-  config = {},
-  cmsName,
+  blockRenderer,
 }: {
   data: RestApiBlockData;
-  config: WPBlocksConfigReact;
-  cmsName?: string;
+  blockRenderer: WPReactBlockRenderer;
 }) {
   const [blockData, setBlockData] = useState(data);
 
   const rendered = useMemo(
     () =>
-      getCMSInstance(cmsName)
-        .blockRenderer.mergeConfigWith(config)
-        .render([blockData], { customProps: { isIframePreview: true } }),
-    [blockData, config, cmsName]
+      blockRenderer.render([blockData], {
+        customProps: { isIframePreview: true },
+      }),
+    [blockRenderer, blockData]
   );
 
   const handleMessages = (event) => {

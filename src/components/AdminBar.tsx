@@ -2,9 +2,9 @@ import { Button, Link } from "@cloakui/react-primitives";
 import { cx } from "@cloakui/styles";
 import { useUser } from "../hooks/useUser";
 import { HomeIcon, EditIcon, EyeIcon } from "./icons";
-import { getCloakWPConfig, getCMSInstance } from "cloakwp";
+import { getCloakWPConfig, getCMSInstance, getCMSInstanceAsync } from "cloakwp";
 import { useGlobals } from "../context/GlobalsContext";
-import { FC } from "react";
+import { FC, useEffect, useState } from "react";
 
 export type AdminBarProps = {
   /** Add custom classes to the AdminBar's outermost div. */
@@ -23,10 +23,19 @@ export const AdminBar: FC<AdminBarProps> = ({
   alwaysVisible = false,
   ...props
 }) => {
+  const [cmsMeta, setCmsMeta] = useState({ url: null, adminPath: null });
   const { pageData, isPreview } = useGlobals();
   let { isLoggedIn = false } = useUser();
   const { apiRouterBasePath } = getCloakWPConfig();
-  const { url, adminPath } = getCMSInstance();
+
+  useEffect(() => {
+    const loadCMSInstance = async () => {
+      const { url, adminPath } = await getCMSInstanceAsync();
+      setCmsMeta({ url, adminPath });
+    };
+
+    loadCMSInstance();
+  }, []);
 
   const status =
     {
@@ -52,7 +61,7 @@ export const AdminBar: FC<AdminBarProps> = ({
         >
           <div className="w-full flex gap-x-2 sm:gap-x-6 mb-0 text-sm">
             <a
-              href={`${url}${adminPath}/edit.php`}
+              href={`${cmsMeta.url}${cmsMeta.adminPath}/edit.php`}
               target="_blank"
               className="flex items-center"
             >
@@ -61,7 +70,7 @@ export const AdminBar: FC<AdminBarProps> = ({
             </a>
             {pageData && (
               <a
-                href={`${url}${adminPath}/post.php?post=${pageData.id}&action=edit`}
+                href={`${cmsMeta.url}${cmsMeta.adminPath}/post.php?post=${pageData.id}&action=edit`}
                 target="_blank"
                 className="flex items-center"
               >

@@ -1,13 +1,13 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.BlockPreview = void 0;
-const cloakwp_1 = require("cloakwp");
 const react_1 = require("react");
-function BlockPreview({ data, config = {}, cmsName, }) {
+const cloakwp_1 = require("cloakwp");
+function BlockPreview({ data, blockRenderer, }) {
     const [blockData, setBlockData] = (0, react_1.useState)(data);
-    const rendered = (0, react_1.useMemo)(() => (0, cloakwp_1.getCMSInstance)(cmsName)
-        .blockRenderer.mergeConfigWith(config)
-        .render([blockData], { customProps: { isIframePreview: true } }), [blockData, config, cmsName]);
+    const rendered = (0, react_1.useMemo)(() => blockRenderer.render([blockData], {
+        customProps: { isIframePreview: true },
+    }), [blockRenderer, blockData]);
     const handleMessages = (event) => {
         (0, cloakwp_1.handleWPBlockIframeMessage)(event, {
             onBlockDataReceipt: (blockData) => {

@@ -1,7 +1,7 @@
-import { RestApiBlockData } from "cloakwp";
-import { WPBlocksConfigReact } from "../types";
-export declare function BlockPreview({ data, config, cmsName, }: {
+/// <reference types="react" />
+import { type RestApiBlockData } from "cloakwp";
+import { type WPReactBlockRenderer } from "../WPReactBlockRenderer";
+export declare function BlockPreview({ data, blockRenderer, }: {
     data: RestApiBlockData;
-    config: WPBlocksConfigReact;
-    cmsName?: string;
-}): any;
+    blockRenderer: WPReactBlockRenderer;
+}): import("react").ReactNode;
