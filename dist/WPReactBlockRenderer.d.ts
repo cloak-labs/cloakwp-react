@@ -1,5 +1,6 @@
-import { RestApiBlockData, BlockRendererConfig, WPBlockRenderer } from "cloakwp";
-import React = require("react");
+import { BlockRendererConfig } from "cloakwp/cms";
+import { RestApiBlockData, WPBlockRenderer } from "cloakwp/blocks";
+import React from "react";
 /**
  * A tiny wrapper around the BlockRenderer class from `render-blocks`, simply
  * for the purposes of tailoring the type parameter defaults for React + CloakWP,

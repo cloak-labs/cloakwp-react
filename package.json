@@ -2,18 +2,23 @@
   "name": "@cloakwp/react",
   "version": "0.1.0",
   "description": "CloakWP utilities + components for the React ecosystem.",
-  "main": "dist/index",
-  "types": "dist/index.d.ts",
+  "main": "dist/index.js",
+  "types": "dist/types.d.ts",
   "exports": {
     ".": {
       "require": "./dist/index.js",
-      "import": "./dist/index.d.ts"
+      "import": "./dist/index.js"
+    },
+    "./*": {
+      "require": "./dist/*.js",
+      "import": "./dist/*.js",
+      "types": "./dist/*.d.ts"
     }
   },
   "scripts": {
     "dev": "tsc -p tsconfig.json -w",
     "build": "npm run build-ts",
-    "build-ts": "tsc-silent -p tsconfig.json --suppress",
+    "build-ts": "tsc -p tsconfig.json",
     "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist",
     "zzz-postpublish": "git push && git push --tags"
   },
@@ -45,13 +50,13 @@
   },
   "peerDependencies": {
     "@cloakui/styles": ">= 0.2.0",
-    "cloakwp": ">= 0.4.3",
+    "cloakwp": ">= 0.6.1",
     "html-react-parser": "5.x",
     "react": ">= 17.0.2",
     "react-dom": ">= 17.0.2"
   },
   "dependencies": {
-    "@cloakui/react-primitives": "^0.0.6"
+    "@cloakui/react-primitives": "^0.1.0"
   },
   "publishConfig": {
     "access": "public"

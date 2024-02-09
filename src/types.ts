@@ -3,8 +3,8 @@
  * Doing so prevents users from having to mess with type parameters all over the place.
  */
 
+import { EmptyObjectOrRecord } from "cloakwp/cms";
 import {
-  EmptyObjectOrRecord,
   RestApiBlockData,
   WPBlockContext,
   WPBlockDataWithExtraContext,
@@ -16,12 +16,12 @@ import {
   WPSingleBlockConfigWithVariants,
   WPSingleBlockConfigWithoutVariants,
   WPVariantsRouter,
-} from "cloakwp";
+} from "cloakwp/blocks";
 
 type ReactComponent = React.ComponentType<any>;
 
 export type WPBlockRendererConfigReact<TBlockData = RestApiBlockData> =
-  WPBlockRendererConfig<ReactComponent, TBlockData>;
+  WPBlockRendererConfig<ReactComponent, React.ReactNode, TBlockData>;
 
 export type WPDataRouterReact<
   TProps = EmptyObjectOrRecord,
@@ -31,7 +31,7 @@ export type WPDataRouterReact<
 export type WPGlobalDataRouterReact<
   TProps = EmptyObjectOrRecord,
   TBlockData = RestApiBlockData
-> = WPGlobalDataRouter<TProps, TBlockData, ReactComponent>;
+> = WPGlobalDataRouter<TProps, TBlockData>;
 
 export type WPSingleBlockConfigWithoutVariantsReact<
   TProps = EmptyObjectOrRecord,
@@ -39,7 +39,7 @@ export type WPSingleBlockConfigWithoutVariantsReact<
 > = WPSingleBlockConfigWithoutVariants<ReactComponent, TProps, TBlockData>;
 
 export type WPVariantsRouterReact<TBlockData = RestApiBlockData> =
-  WPVariantsRouter<ReactComponent, TBlockData>;
+  WPVariantsRouter<TBlockData>;
 
 export type WPSingleBlockConfigWithVariantsReact<
   TBlockData = RestApiBlockData,
@@ -55,10 +55,8 @@ export type WPBlocksConfigReact<TBlockData = RestApiBlockData> = WPBlocksConfig<
 >;
 
 export type WPBlockDataWithExtraContextReact<TBlockData = RestApiBlockData> =
-  WPBlockDataWithExtraContext<ReactComponent, TBlockData>;
+  WPBlockDataWithExtraContext<TBlockData>;
 
-export type WPBlockContextReact<TBlockData = RestApiBlockData> = WPBlockContext<
-  ReactComponent,
-  TBlockData
->;
+export type WPBlockContextReact<TBlockData = RestApiBlockData> =
+  WPBlockContext<TBlockData>;
 // == End WP `render-blocks` wrappers ==

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { isUserLoggedIn } from "cloakwp";
+import { isUserLoggedIn } from "cloakwp/auth";
 
 export function useUser() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);

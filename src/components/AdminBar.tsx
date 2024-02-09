@@ -1,10 +1,11 @@
+import { FC, useEffect, useState } from "react";
+import { getCloakWPConfig } from "cloakwp";
+import { getCMSInstanceAsync } from "cloakwp/cms";
 import { Button, Link } from "@cloakui/react-primitives";
 import { cx } from "@cloakui/styles";
 import { useUser } from "../hooks/useUser";
 import { HomeIcon, EditIcon, EyeIcon } from "./icons";
-import { getCloakWPConfig, getCMSInstance, getCMSInstanceAsync } from "cloakwp";
 import { useGlobals } from "../context/GlobalsContext";
-import { FC, useEffect, useState } from "react";
 
 export type AdminBarProps = {
   /** Add custom classes to the AdminBar's outermost div. */
