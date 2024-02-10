@@ -1,6 +1,6 @@
 {
   "name": "@cloakwp/react",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "CloakWP utilities + components for the React ecosystem.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
