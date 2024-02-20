@@ -51,13 +51,13 @@
   },
   "peerDependencies": {
     "@cloakui/styles": ">= 0.3.0",
-    "cloakwp": ">= 0.6.1",
+    "cloakwp": ">= 0.6.6",
     "html-react-parser": "5.x",
     "react": ">= 17.0.2",
     "react-dom": ">= 17.0.2"
   },
   "dependencies": {
-    "@cloakui/react-primitives": "^0.2.0"
+    "@cloakui/react-primitives": "^0.2.2"
   },
   "publishConfig": {
     "access": "public"
