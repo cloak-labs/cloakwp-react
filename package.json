@@ -50,8 +50,8 @@
     "typescript": "^5.3.2"
   },
   "peerDependencies": {
-    "@cloakui/styles": ">= 0.3.0",
-    "cloakwp": ">= 0.6.6",
+    "@cloakui/styles": ">= 0.3.1",
+    "cloakwp": ">= 0.6.8",
     "html-react-parser": "5.x",
     "react": ">= 17.0.2",
     "react-dom": ">= 17.0.2"
