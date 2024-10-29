@@ -21,4 +21,5 @@ export const GlobalsProvider = ({ children, ...props }) => {
   );
 };
 
-export const useGlobals = () => useContext(GlobalsContext);
+export const useGlobals = <T extends Record<string, any>>() =>
+  useContext(GlobalsContext) as T;

@@ -9,7 +9,11 @@
     "declarationDir": "dist",
     "jsx": "react-jsx",
     "strict": false,
-    "noEmit": false
+    "noEmit": false,
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true
   },
   "include": ["src/**/*"]
 }

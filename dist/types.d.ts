@@ -5,7 +5,7 @@
 /// <reference types="react" />
 import { EmptyObjectOrRecord } from "cloakwp/cms";
 import { RestApiBlockData, WPBlockContext, WPBlockDataWithExtraContext, WPBlockRendererConfig, WPBlocksConfig, WPDataRouter, WPGlobalDataRouter, WPSingleBlockConfig, WPSingleBlockConfigWithVariants, WPSingleBlockConfigWithoutVariants, WPVariantsRouter } from "cloakwp/blocks";
-type ReactComponent = React.ComponentType<any>;
+type ReactComponent = React.FC<any>;
 export type WPBlockRendererConfigReact<TBlockData = RestApiBlockData> = WPBlockRendererConfig<ReactComponent, React.ReactNode, TBlockData>;
 export type WPDataRouterReact<TProps = EmptyObjectOrRecord, TBlockData = RestApiBlockData> = WPDataRouter<TProps, Partial<TBlockData>, ReactComponent>;
 export type WPGlobalDataRouterReact<TProps = EmptyObjectOrRecord, TBlockData = RestApiBlockData> = WPGlobalDataRouter<TProps, TBlockData>;

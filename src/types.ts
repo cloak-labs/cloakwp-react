@@ -18,7 +18,7 @@ import {
   WPVariantsRouter,
 } from "cloakwp/blocks";
 
-type ReactComponent = React.ComponentType<any>;
+type ReactComponent = React.FC<any>;
 
 export type WPBlockRendererConfigReact<TBlockData = RestApiBlockData> =
   WPBlockRendererConfig<ReactComponent, React.ReactNode, TBlockData>;

@@ -27,7 +27,7 @@ export const AdminBar: FC<AdminBarProps> = ({
 }) => {
   const [cmsMeta, setCmsMeta] = useState({ url: null, adminPath: null });
   const { pageData, isPreview } = useGlobals();
-  let { isLoggedIn = false } = useUser();
+  const { isLoggedIn = false } = useUser();
   const { apiRouterBasePath } = getCloakWPConfig();
 
   useEffect(() => {
@@ -46,9 +46,7 @@ export const AdminBar: FC<AdminBarProps> = ({
       pending: "pending",
       future: "scheduled",
       private: "private",
-    }[pageData?.status] ??
-    pageData?.status ??
-    "revision";
+    }[pageData?.status] ?? "unknown";
 
   return (
     <>
@@ -56,7 +54,7 @@ export const AdminBar: FC<AdminBarProps> = ({
         <div
           id="cloakwp-admin-bar"
           className={cx(
-            "w-full h-[38px] flex items-center bg-root-invert text-root-invert dark:bg-root-dim dark:text-root-dim border-b border-root-dim px-3 lg:px-4 py-1.5",
+            "w-full h-[38px] flex items-center dark bg-root text-root-dim border-b border-root px-3 lg:px-4 py-1.5",
             className
           )}
           {...props}

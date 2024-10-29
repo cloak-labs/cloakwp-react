@@ -7,7 +7,7 @@ export function HomeIcon({ className }) {
       fill="none"
       stroke="currentColor"
       strokeWidth="1.5"
-      className={cx("w-4 h-4", className)}
+      className={cx("size-4", className)}
       viewBox="0 0 24 24"
     >
       <path
