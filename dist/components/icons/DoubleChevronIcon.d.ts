@@ -1,3 +1,3 @@
 /// <reference types="react" />
 import { AdminBarIconProps } from "../..";
-export declare const EditIcon: React.FC<AdminBarIconProps>;
+export declare const DoubleChevronIcon: React.FC<AdminBarIconProps>;

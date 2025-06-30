@@ -1,3 +1,3 @@
-export declare function EyeIcon({ className }: {
-    className: any;
-}): import("react/jsx-runtime").JSX.Element;
+/// <reference types="react" />
+import { AdminBarIconProps } from "../..";
+export declare const EyeIcon: React.FC<AdminBarIconProps>;

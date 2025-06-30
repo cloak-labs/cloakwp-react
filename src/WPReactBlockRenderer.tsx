@@ -23,15 +23,17 @@ export class WPReactBlockRenderer<
       React.ReactNode,
       Partial<TBlockData>
     > = {
-      render: (components) =>
-        components.map(({ Component, props }, idx) => {
-          const componentProps = {
-            key: idx,
-            ...(props ?? {}),
-          } as React.ComponentProps<typeof Component>;
+      renderBlock: ({ Component, props }) => <Component {...props} />,
+      combineBlocks: (renderedBlocks) => <>{renderedBlocks}</>,
+      // render: (components) =>
+      //   components.map(({ Component, props }, idx) => {
+      //     const componentProps = {
+      //       key: idx,
+      //       ...(props ?? {}),
+      //     } as React.ComponentProps<typeof Component>;
 
-          return <Component {...componentProps} />;
-        }),
+      //     return <Component {...componentProps} />;
+      //   }),
       ...config,
     };
 

@@ -7,6 +7,7 @@ import { cx } from "@cloakui/styles";
 import { useUser } from "../hooks/useUser";
 import { HomeIcon, EditIcon, EyeIcon } from "./icons";
 import { useGlobals } from "../context/GlobalsContext";
+import { DoubleChevronIcon } from "./icons/DoubleChevronIcon";
 
 export type AdminBarProps = {
   /** Add custom classes to the AdminBar's outermost div. */
@@ -26,6 +27,7 @@ export const AdminBar: FC<AdminBarProps> = ({
   ...props
 }) => {
   const [cmsMeta, setCmsMeta] = useState({ url: null, adminPath: null });
+  const [isCollapsed, setIsCollapsed] = useState(false);
   const { pageData, isPreview } = useGlobals();
   const { isLoggedIn = false } = useUser();
   const { apiRouterBasePath } = getCloakWPConfig();
@@ -54,68 +56,81 @@ export const AdminBar: FC<AdminBarProps> = ({
         <div
           id="cloakwp-admin-bar"
           className={cx(
-            "w-full h-[38px] flex items-center dark bg-root text-root-dim border-b border-root px-3 lg:px-4 py-1.5",
+            "relative h-[38px] flex items-center dark text-root-dim border-b border-root py-1.5",
+            isCollapsed
+              ? "w-auto absolute right-0 top-3 z-[51] border-l border-t rounded-l-sm bg-root/30 backdrop-blur-sm transition-all duration-100"
+              : "w-full px-3 bg-root",
             className
           )}
           {...props}
         >
-          <div className="w-full flex gap-x-2 sm:gap-x-6 mb-0 text-sm">
-            <a
-              href={`${cmsMeta.url}${cmsMeta.adminPath}/edit.php`}
-              target="_blank"
-              className="flex items-center"
-            >
-              <HomeIcon className="mr-1.5" />
-              <span className="hidden sm:flex">Dashboard</span>
-            </a>
-            {pageData && (
+          {!isCollapsed && (
+            <div className="flex w-full gap-x-2 sm:gap-x-6 mb-0 text-sm">
               <a
-                href={`${cmsMeta.url}${cmsMeta.adminPath}/post.php?post=${pageData.id}&action=edit`}
+                href={`${cmsMeta.url}${cmsMeta.adminPath}/edit.php`}
                 target="_blank"
                 className="flex items-center"
               >
-                <EditIcon className="mr-1.5" />
-                <span className="hidden sm:flex">Edit Page</span>
+                <HomeIcon className="mr-1.5" />
+                <span className="hidden sm:flex">Dashboard</span>
               </a>
-            )}
-            {enableRestApiLink && (
-              <a
-                href={pageData?._links?.self[0]?.href}
-                target="_blank"
-                className="flex items-center"
-              >
-                <EyeIcon className="mr-1.5" />
-                <span className="hidden sm:flex">REST API</span>
-              </a>
-            )}
-            {isPreview && (
-              <Button
-                variants={{ size: "sm", variant: "secondary" }}
-                className="ml-auto"
-                asChild={true}
-              >
-                <Link
-                  href={`${apiRouterBasePath}/exit-preview?pathname=${pageData.pathname}`}
-                  openInNewTab={false}
+              {pageData && (
+                <a
+                  href={`${cmsMeta.url}${cmsMeta.adminPath}/post.php?post=${pageData.id}&action=edit`}
+                  target="_blank"
+                  className="flex items-center"
                 >
-                  Exit Preview
-                </Link>
-              </Button>
-            )}
-            {pageData && (
-              <div
-                className={cx(
-                  "flex items-center gap-x-2",
-                  !isPreview && "ml-auto"
-                )}
-              >
-                Status:
-                <span className="rounded-full bg-root text-root dark:bg-root-invert dark:text-root-invert py-0.5 px-2 uppercase tracking-normal text-xs font-medium">
-                  {status}
-                </span>
-              </div>
-            )}
-          </div>
+                  <EditIcon className="mr-1.5" />
+                  <span className="hidden sm:flex">Edit Page</span>
+                </a>
+              )}
+              {enableRestApiLink && (
+                <a
+                  href={pageData?._links?.self[0]?.href}
+                  target="_blank"
+                  className="flex items-center"
+                >
+                  <EyeIcon className="mr-1.5" />
+                  <span className="hidden sm:flex">REST API</span>
+                </a>
+              )}
+              {isPreview && (
+                <Button
+                  variants={{ size: "sm", variant: "secondary" }}
+                  className="ml-auto"
+                  asChild={true}
+                >
+                  <Link
+                    href={`${apiRouterBasePath}/exit-preview?pathname=${pageData.pathname}`}
+                    openInNewTab={false}
+                  >
+                    Exit Preview
+                  </Link>
+                </Button>
+              )}
+              {pageData && (
+                <div
+                  className={cx(
+                    "flex items-center gap-x-2 text-sm",
+                    !isPreview && "ml-auto"
+                  )}
+                >
+                  Status:
+                  <span className="rounded-full bg-root text-root dark:bg-root-invert dark:text-root-invert py-0.5 px-2 uppercase tracking-normal text-xs font-medium">
+                    {status}
+                  </span>
+                </div>
+              )}
+              <div className="absolute right-9 top-0 w-px h-full bg-root-invert-dim/20" />
+            </div>
+          )}
+          <DoubleChevronIcon
+            className={[
+              "border-root cursor-pointer transition-all duration-200",
+              isCollapsed ? "px-1 size-6" : "size-4 rotate-180 ml-6",
+            ]}
+            onClick={() => setIsCollapsed(!isCollapsed)}
+          />
         </div>
       )}
     </>

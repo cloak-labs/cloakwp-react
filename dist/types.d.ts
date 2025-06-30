@@ -5,6 +5,7 @@
 /// <reference types="react" />
 import { EmptyObjectOrRecord } from "cloakwp/cms";
 import { RestApiBlockData, WPBlockContext, WPBlockDataWithExtraContext, WPBlockRendererConfig, WPBlocksConfig, WPDataRouter, WPGlobalDataRouter, WPSingleBlockConfig, WPSingleBlockConfigWithVariants, WPSingleBlockConfigWithoutVariants, WPVariantsRouter } from "cloakwp/blocks";
+import { ClassValue } from "@cloakui/styles";
 type ReactComponent = React.FC<any>;
 export type WPBlockRendererConfigReact<TBlockData = RestApiBlockData> = WPBlockRendererConfig<ReactComponent, React.ReactNode, TBlockData>;
 export type WPDataRouterReact<TProps = EmptyObjectOrRecord, TBlockData = RestApiBlockData> = WPDataRouter<TProps, Partial<TBlockData>, ReactComponent>;
@@ -16,4 +17,8 @@ export type WPSingleBlockConfigReact<TBlockData = RestApiBlockData> = WPSingleBl
 export type WPBlocksConfigReact<TBlockData = RestApiBlockData> = WPBlocksConfig<ReactComponent, TBlockData>;
 export type WPBlockDataWithExtraContextReact<TBlockData = RestApiBlockData> = WPBlockDataWithExtraContext<TBlockData>;
 export type WPBlockContextReact<TBlockData = RestApiBlockData> = WPBlockContext<TBlockData>;
+export type AdminBarIconProps = {
+    className?: ClassValue;
+    onClick?: () => void;
+};
 export {};

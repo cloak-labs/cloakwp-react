@@ -1,3 +1,3 @@
-export declare function HomeIcon({ className }: {
-    className: any;
-}): import("react/jsx-runtime").JSX.Element;
+/// <reference types="react" />
+import { AdminBarIconProps } from "../..";
+export declare const HomeIcon: React.FC<AdminBarIconProps>;

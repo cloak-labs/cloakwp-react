@@ -17,6 +17,7 @@ import {
   WPSingleBlockConfigWithoutVariants,
   WPVariantsRouter,
 } from "cloakwp/blocks";
+import { ClassValue } from "@cloakui/styles";
 
 type ReactComponent = React.FC<any>;
 
@@ -60,3 +61,8 @@ export type WPBlockDataWithExtraContextReact<TBlockData = RestApiBlockData> =
 export type WPBlockContextReact<TBlockData = RestApiBlockData> =
   WPBlockContext<TBlockData>;
 // == End WP `render-blocks` wrappers ==
+
+export type AdminBarIconProps = {
+  className?: ClassValue;
+  onClick?: () => void;
+};

@@ -1,16 +1,11 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { sendBlockHeightToWP, handleWPBlockIframeMessage, watchForDocumentHeightChanges, } from "cloakwp/editor";
-export function BlockPreview({ data, blockRenderer, }) {
+export const BlockPreview = ({ data, blockRenderer, }) => {
     const [blockData, setBlockData] = useState(data);
-    const [rendered, setRendered] = useState(null);
-    useEffect(() => {
-        const doRender = async () => {
-            const result = await blockRenderer.render([blockData], {
-                customProps: { isIframePreview: true },
-            });
-            setRendered(result);
-        };
-        doRender();
+    const renderedContent = useMemo(() => {
+        return blockRenderer.render([blockData], {
+            customProps: { isIframePreview: true },
+        });
     }, [blockRenderer, blockData]);
     const handleMessages = (event) => {
         handleWPBlockIframeMessage(event, {
@@ -37,5 +32,5 @@ export function BlockPreview({ data, blockRenderer, }) {
             };
         }
     }, []);
-    return rendered;
-}
+    return renderedContent;
+};
