@@ -1,7 +1,7 @@
 export function ErrorPage({ errorData }) {
   return (
     <div className="px-4 sm:px-6 lg:px-9 mx-auto max-w-7xl lg:max-w-8xl">
-      <div className="mx-auto flex h-[70vh] max-w-none flex-col items-center justify-center gap-y-3 sm:max-w-xl lg:max-w-3xl">
+      <div className="mx-auto flex h-[70svh] max-w-none flex-col items-center justify-center gap-y-3 sm:max-w-xl lg:max-w-3xl">
         <h2 className="text-lg text-gray-900 sm:text-xl">
           {errorData?.data?.status
             ? `${errorData.data.status} error`
