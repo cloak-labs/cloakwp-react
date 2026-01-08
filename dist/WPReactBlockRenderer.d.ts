@@ -9,3 +9,4 @@ import { type RestApiBlockData, WPBlockRenderer } from "cloakwp/blocks";
 export declare class WPReactBlockRenderer<TBlockData = RestApiBlockData> extends WPBlockRenderer<React.FC<any>, React.ReactNode, TBlockData> {
     constructor(config: BlockRendererConfig<React.FC<any>, React.ReactNode, Partial<TBlockData>>);
 }
+//# sourceMappingURL=WPReactBlockRenderer.d.ts.map

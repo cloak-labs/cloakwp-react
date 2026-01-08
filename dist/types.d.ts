@@ -22,3 +22,4 @@ export type AdminBarIconProps = {
     onClick?: () => void;
 };
 export {};
+//# sourceMappingURL=types.d.ts.map

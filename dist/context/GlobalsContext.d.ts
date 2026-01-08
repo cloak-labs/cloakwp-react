@@ -3,3 +3,4 @@ export declare const GlobalsProvider: ({ children, ...props }: {
     children: any;
 }) => import("react/jsx-runtime").JSX.Element;
 export declare const useGlobals: <T extends Record<string, any>>() => T;
+//# sourceMappingURL=GlobalsContext.d.ts.map
