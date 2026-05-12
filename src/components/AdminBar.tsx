@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "@cloakui/react-primitives/Link";
 import { Button } from "@cloakui/react-primitives/Button";
 import { HomeIcon, EditIcon, EyeIcon, DoubleChevronIcon } from "./icons";
-import { getCloakWPConfig } from "cloakwp";
 import { ContentSourceRegistry } from "cloakwp/cms";
 import { useGlobals } from "../context/GlobalsContext";
 import { useUser } from "../hooks/useUser";
@@ -29,10 +28,10 @@ export const AdminBar: React.FC<AdminBarProps> = ({
   const [isCollapsed, setIsCollapsed] = React.useState(false);
   const { pageData, isPreview } = useGlobals();
   const { isLoggedIn = false } = useUser();
-  const { apiRouterBasePath } = getCloakWPConfig();
 
   const wp = ContentSourceRegistry.get("wp");
-  const { url, adminPath } = wp.getConfig();
+  const { adminPath } = wp.getConfig();
+  const url = wp.getActiveUrl();
 
   const status =
     {
@@ -94,7 +93,7 @@ export const AdminBar: React.FC<AdminBarProps> = ({
                   asChild={true}
                 >
                   <Link
-                    href={`${apiRouterBasePath}/exit-preview?pathname=${pageData.pathname}`}
+                    href={`/api/cloakwp/exit-preview?pathname=${pageData.pathname}`}
                     openInNewTab={false}
                   >
                     Exit Preview
