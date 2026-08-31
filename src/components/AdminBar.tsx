@@ -1,8 +1,11 @@
+"use client";
+
 import React from "react";
 import { Link } from "@cloakui/react-primitives/Link";
 import { Button } from "@cloakui/react-primitives/Button";
 import { HomeIcon, EditIcon, EyeIcon, DoubleChevronIcon } from "./icons";
 import { ContentSourceRegistry } from "cloakwp/cms";
+import { wpAdminHandshakePath } from "cloakwp/auth";
 import { useGlobals } from "../context/GlobalsContext";
 import { useUser } from "../hooks/useUser";
 import { cx, type ClassValue } from "@cloakui/styles";
@@ -31,7 +34,6 @@ export const AdminBar: React.FC<AdminBarProps> = ({
 
   const wp = ContentSourceRegistry.get("wp");
   const { adminPath } = wp.getConfig();
-  const url = wp.getActiveUrl();
 
   const status =
     {
@@ -59,7 +61,7 @@ export const AdminBar: React.FC<AdminBarProps> = ({
           {!isCollapsed && (
             <div className="flex w-full gap-x-2 sm:gap-x-6 mb-0 text-sm">
               <a
-                href={`${url}${adminPath}/edit.php`}
+                href={wpAdminHandshakePath(`${adminPath}/edit.php`)}
                 target="_blank"
                 className="flex items-center"
               >
@@ -68,7 +70,9 @@ export const AdminBar: React.FC<AdminBarProps> = ({
               </a>
               {pageData && (
                 <a
-                  href={`${url}${adminPath}/post.php?post=${pageData.id}&action=edit`}
+                  href={wpAdminHandshakePath(
+                    `${adminPath}/post.php?post=${pageData.id}&action=edit`
+                  )}
                   target="_blank"
                   className="flex items-center"
                 >

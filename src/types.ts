@@ -1,9 +1,9 @@
 /**
- * Wrap all generic WP `@kaelan/render-blocks` types to make them React-specific.
+ * Wrap all generic WP `@cloakui/block-renderer` types to make them React-specific.
  * Doing so prevents users from having to mess with type parameters all over the place.
  */
 
-import { EmptyObjectOrRecord } from "cloakwp/cms";
+import { EmptyObjectOrRecord } from "cloakwp/blocks";
 import {
   RestApiBlockData,
   WPBlockContext,
@@ -19,7 +19,12 @@ import {
 } from "cloakwp/blocks";
 import { ClassValue } from "@cloakui/styles";
 
-type ReactComponent = React.FC<any>;
+/**
+ * `ComponentType` (rather than `FC`) so that class components and the branded
+ * component types returned by `next/dynamic`/`React.lazy` wrappers are
+ * accepted without casts.
+ */
+type ReactComponent = React.ComponentType<any>;
 
 export type WPBlockRendererConfigReact<TBlockData = RestApiBlockData> =
   WPBlockRendererConfig<ReactComponent, React.ReactNode, TBlockData>;

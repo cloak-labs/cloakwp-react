@@ -2,7 +2,9 @@ import React from "react";
 import { type RestApiBlockData } from "cloakwp/blocks";
 import { type WPReactBlockRenderer } from "../WPReactBlockRenderer";
 export type BlockPreviewProps = {
-    data: RestApiBlockData;
+    data?: RestApiBlockData;
+    pathname?: string;
+    previewKey: string;
     blockRenderer: WPReactBlockRenderer;
 };
 export declare const BlockPreview: React.FC<BlockPreviewProps>;

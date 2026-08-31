@@ -1,5 +1,5 @@
 import React from "react";
-import { type BlockRendererConfig } from "cloakwp/cms";
+import { type BlockRendererConfig } from "cloakwp/blocks";
 import { type RestApiBlockData, WPBlockRenderer } from "cloakwp/blocks";
 
 /**
@@ -9,17 +9,21 @@ import { type RestApiBlockData, WPBlockRenderer } from "cloakwp/blocks";
  */
 export class WPReactBlockRenderer<
   TBlockData = RestApiBlockData
-> extends WPBlockRenderer<React.FC<any>, React.ReactNode, TBlockData> {
+> extends WPBlockRenderer<
+  React.ComponentType<any>,
+  React.ReactNode,
+  TBlockData
+> {
   constructor(
     config: BlockRendererConfig<
-      React.FC<any>,
+      React.ComponentType<any>,
       React.ReactNode,
       Partial<TBlockData>
     >
   ) {
     // We specify a default React-based `render` function, which users can override:
     let configWithDefaults: BlockRendererConfig<
-      React.FC<any>,
+      React.ComponentType<any>,
       React.ReactNode,
       Partial<TBlockData>
     > = {

@@ -1,0 +1,1 @@
+{"version":3,"file":"SessionContext.d.ts","sourceRoot":"","sources":["../../src/context/SessionContext.tsx"],"names":[],"mappings":"AAEA,OAAO,KAAoC,MAAM,OAAO,CAAC;AAGzD,KAAK,YAAY,GAAG;IAClB,UAAU,EAAE,OAAO,CAAC;CACrB,CAAC;AAIF,wBAAgB,eAAe,CAAC,EAAE,QAAQ,EAAE,EAAE;IAAE,QAAQ,EAAE,KAAK,CAAC,SAAS,CAAA;CAAE,qBAK1E;AAED,wBAAgB,UAAU,IAAI,YAAY,CAEzC"}
