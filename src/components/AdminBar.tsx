@@ -4,6 +4,7 @@ import React from "react";
 import { Link } from "@cloakui/react-primitives/Link";
 import { Button } from "@cloakui/react-primitives/Button";
 import { HomeIcon, EditIcon, EyeIcon, DoubleChevronIcon } from "./icons";
+import { LogoutForm } from "./LogoutForm";
 import { ContentSourceRegistry } from "cloakwp/cms";
 import { wpAdminHandshakePath } from "cloakwp/auth";
 import { useGlobals } from "../context/GlobalsContext";
@@ -116,6 +117,20 @@ export const AdminBar: React.FC<AdminBarProps> = ({
                     {status}
                   </span>
                 </div>
+              )}
+              {isLoggedIn && (
+                <LogoutForm
+                  redirect={
+                    typeof pageData?.pathname === "string" &&
+                    pageData.pathname !== ""
+                      ? pageData.pathname
+                      : "/"
+                  }
+                  className={cx(
+                    "flex items-center [&_button]:flex [&_button]:cursor-pointer [&_button]:items-center [&_button]:border-0 [&_button]:bg-transparent [&_button]:p-0 [&_button]:text-inherit",
+                    !pageData && !isPreview && "ml-auto"
+                  )}
+                />
               )}
               <div className="absolute right-9 top-0 w-px h-full bg-root-invert-dim/20" />
             </div>

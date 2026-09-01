@@ -7,6 +7,7 @@ ready-handshake, and height-reporting behavior. Applications provide their own
 sync or async block renderer, so the component works with any React framework.
 
 `LoginForm` posts credentials to the Backend for Frontend (BFF) (`strategy="credentials"`).
-`useUser` / `AdminBar` read the `cloakwp_ui` hint cookie and never fetch
-WordPress for anonymous visitors. Dashboard and Edit links go through
-`/api/cloakwp/auth/wp-admin` so wp-admin cookies can be refreshed.
+`LogoutForm` posts to `/api/cloakwp/auth/logout`. `useUser` / `AdminBar` read the
+`cloakwp_ui` hint cookie and never fetch WordPress for anonymous visitors.
+Dashboard and Edit links go through `/api/cloakwp/auth/wp-admin` so wp-admin
+cookies can be refreshed. Logged-in AdminBar includes Log Out.

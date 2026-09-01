@@ -2,4 +2,5 @@ export { WPReactBlockRenderer } from "./WPReactBlockRenderer";
 export { BlockPreview } from "./components/BlockPreview";
 export { BlockPreviewFrame } from "./components/BlockPreviewFrame";
 export { LoginForm } from "./components/LoginForm";
+export { LogoutForm } from "./components/LogoutForm";
 export { SessionProvider, useSession } from "./context/SessionContext";

@@ -9,4 +9,6 @@ export type {
 } from "./components/BlockPreviewFrame";
 export { LoginForm } from "./components/LoginForm";
 export type { LoginFormProps } from "./components/LoginForm";
+export { LogoutForm } from "./components/LogoutForm";
+export type { LogoutFormProps } from "./components/LogoutForm";
 export { SessionProvider, useSession } from "./context/SessionContext";

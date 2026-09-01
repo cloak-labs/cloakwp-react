@@ -1,0 +1,1 @@
+{"version":3,"file":"LogoutForm.d.ts","sourceRoot":"","sources":["../../src/components/LogoutForm.tsx"],"names":[],"mappings":";AAEA,MAAM,MAAM,eAAe,GAAG;IAC5B,MAAM,CAAC,EAAE,MAAM,CAAC;IAChB,QAAQ,CAAC,EAAE,MAAM,CAAC;IAClB,SAAS,CAAC,EAAE,MAAM,CAAC;IACnB,QAAQ,CAAC,EAAE,KAAK,CAAC,SAAS,CAAC;CAC5B,CAAC;AAEF,eAAO,MAAM,UAAU,6GAiBtB,CAAC"}
