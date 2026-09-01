@@ -6,6 +6,7 @@ export type BlockPreviewProps = {
     pathname?: string;
     previewKey: string;
     blockRenderer: WPReactBlockRenderer;
+    targetOrigin?: string;
 };
 export declare const BlockPreview: React.FC<BlockPreviewProps>;
 //# sourceMappingURL=BlockPreview.d.ts.map

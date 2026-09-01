@@ -10,6 +10,7 @@ export type BlockPreviewProps = {
   pathname?: string;
   previewKey: string;
   blockRenderer: WPReactBlockRenderer;
+  targetOrigin?: string;
 };
 
 export const BlockPreview: React.FC<BlockPreviewProps> = ({
@@ -17,6 +18,7 @@ export const BlockPreview: React.FC<BlockPreviewProps> = ({
   pathname = "",
   previewKey,
   blockRenderer,
+  targetOrigin,
 }) => {
   const initialContent = useMemo(() => {
     if (!data) return null;
@@ -30,6 +32,7 @@ export const BlockPreview: React.FC<BlockPreviewProps> = ({
     <BlockPreviewFrame
       pathname={pathname}
       previewKey={previewKey}
+      targetOrigin={targetOrigin}
       initialContent={initialContent}
       renderBlock={(blockData) =>
         blockRenderer.render([blockData], {

@@ -5,6 +5,7 @@ import { type RestApiBlockData } from "cloakwp/blocks";
 import {
   getConfiguredWpOrigin,
   handleWPBlockIframeMessage,
+  resolvePreviewTargetOrigin,
   sendPreviewReadyToWp,
   watchForDocumentHeightChanges,
 } from "cloakwp/editor";
@@ -60,7 +61,9 @@ export function BlockPreviewFrame({
   }, []);
 
   useEffect(() => {
-    const targetOrigin = configuredTargetOrigin ?? getConfiguredWpOrigin();
+    const targetOrigin =
+      resolvePreviewTargetOrigin(configuredTargetOrigin) ??
+      getConfiguredWpOrigin();
     if (!targetOrigin) {
       console.error(
         "[BlockPreviewFrame] Cannot resolve the configured WordPress origin",

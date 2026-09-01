@@ -1,7 +1,7 @@
 "use client";
 import { jsx as _jsx } from "react/jsx-runtime";
 import { useEffect, useRef, useState } from "react";
-import { getConfiguredWpOrigin, handleWPBlockIframeMessage, sendPreviewReadyToWp, watchForDocumentHeightChanges, } from "cloakwp/editor";
+import { getConfiguredWpOrigin, handleWPBlockIframeMessage, resolvePreviewTargetOrigin, sendPreviewReadyToWp, watchForDocumentHeightChanges, } from "cloakwp/editor";
 /**
  * Framework-neutral React client for CloakWP's block-preview iframe protocol.
  * Framework adapters provide the renderer and optional application shell.
@@ -27,7 +27,8 @@ export function BlockPreviewFrame({ pathname = "", previewKey, renderBlock, init
         };
     }, []);
     useEffect(() => {
-        const targetOrigin = configuredTargetOrigin ?? getConfiguredWpOrigin();
+        const targetOrigin = resolvePreviewTargetOrigin(configuredTargetOrigin) ??
+            getConfiguredWpOrigin();
         if (!targetOrigin) {
             console.error("[BlockPreviewFrame] Cannot resolve the configured WordPress origin");
             return;
