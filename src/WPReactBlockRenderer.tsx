@@ -8,7 +8,7 @@ import { type RestApiBlockData, WPBlockRenderer } from "cloakwp/blocks";
  * saving users from having to manually specify these type params.
  */
 export class WPReactBlockRenderer<
-  TBlockData = RestApiBlockData
+  TBlockData = RestApiBlockData,
 > extends WPBlockRenderer<
   React.ComponentType<any>,
   React.ReactNode,
@@ -19,7 +19,7 @@ export class WPReactBlockRenderer<
       React.ComponentType<any>,
       React.ReactNode,
       Partial<TBlockData>
-    >
+    >,
   ) {
     // We specify a default React-based `render` function, which users can override:
     let configWithDefaults: BlockRendererConfig<

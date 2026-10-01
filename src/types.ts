@@ -31,17 +31,17 @@ export type WPBlockRendererConfigReact<TBlockData = RestApiBlockData> =
 
 export type WPDataRouterReact<
   TProps = EmptyObjectOrRecord,
-  TBlockData = RestApiBlockData
+  TBlockData = RestApiBlockData,
 > = WPDataRouter<TProps, Partial<TBlockData>, ReactComponent>;
 
 export type WPGlobalDataRouterReact<
   TProps = EmptyObjectOrRecord,
-  TBlockData = RestApiBlockData
+  TBlockData = RestApiBlockData,
 > = WPGlobalDataRouter<TProps, TBlockData>;
 
 export type WPSingleBlockConfigWithoutVariantsReact<
   TProps = EmptyObjectOrRecord,
-  TBlockData = RestApiBlockData
+  TBlockData = RestApiBlockData,
 > = WPSingleBlockConfigWithoutVariants<ReactComponent, TProps, TBlockData>;
 
 export type WPVariantsRouterReact<TBlockData = RestApiBlockData> =
@@ -49,7 +49,7 @@ export type WPVariantsRouterReact<TBlockData = RestApiBlockData> =
 
 export type WPSingleBlockConfigWithVariantsReact<
   TBlockData = RestApiBlockData,
-  TProps = EmptyObjectOrRecord
+  TProps = EmptyObjectOrRecord,
 > = WPSingleBlockConfigWithVariants<ReactComponent, TProps, TBlockData>;
 
 export type WPSingleBlockConfigReact<TBlockData = RestApiBlockData> =

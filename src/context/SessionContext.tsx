@@ -12,7 +12,9 @@ const SessionContext = createContext<SessionValue>({ isLoggedIn: false });
 export function SessionProvider({ children }: { children: React.ReactNode }) {
   const session = useUser();
   return (
-    <SessionContext.Provider value={session}>{children}</SessionContext.Provider>
+    <SessionContext.Provider value={session}>
+      {children}
+    </SessionContext.Provider>
   );
 }
 

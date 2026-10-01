@@ -55,7 +55,7 @@ export const AdminBar: React.FC<AdminBarProps> = ({
             isCollapsed
               ? "w-auto absolute right-0 top-3 border-l border-t rounded-l-sm bg-root/30 backdrop-blur-sm transition-all duration-100"
               : "w-full px-3 bg-root",
-            className
+            className,
           )}
           {...props}
         >
@@ -72,7 +72,7 @@ export const AdminBar: React.FC<AdminBarProps> = ({
               {pageData && (
                 <a
                   href={wpAdminHandshakePath(
-                    `${adminPath}/post.php?post=${pageData.id}&action=edit`
+                    `${adminPath}/post.php?post=${pageData.id}&action=edit`,
                   )}
                   target="_blank"
                   className="flex items-center"
@@ -109,7 +109,7 @@ export const AdminBar: React.FC<AdminBarProps> = ({
                 <div
                   className={cx(
                     "flex items-center gap-x-2 text-sm",
-                    !isPreview && "ml-auto"
+                    !isPreview && "ml-auto",
                   )}
                 >
                   Status:
@@ -128,7 +128,7 @@ export const AdminBar: React.FC<AdminBarProps> = ({
                   }
                   className={cx(
                     "flex items-center [&_button]:flex [&_button]:cursor-pointer [&_button]:items-center [&_button]:border-0 [&_button]:bg-transparent [&_button]:p-0 [&_button]:text-inherit",
-                    !pageData && !isPreview && "ml-auto"
+                    !pageData && !isPreview && "ml-auto",
                   )}
                 />
               )}
