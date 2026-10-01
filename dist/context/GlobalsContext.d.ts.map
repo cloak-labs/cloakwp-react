@@ -1,1 +1,1 @@
-{"version":3,"file":"GlobalsContext.d.ts","sourceRoot":"","sources":["../../src/context/GlobalsContext.tsx"],"names":[],"mappings":";AAWA,eAAO,MAAM,eAAe;;;iCAW3B,CAAC;AAEF,eAAO,MAAM,UAAU,wCACU,CAAC"}
+{"version":3,"file":"GlobalsContext.d.ts","sourceRoot":"","sources":["../../src/context/GlobalsContext.tsx"],"names":[],"mappings":"AAWA,eAAO,MAAM,eAAe,GAAI;;;CAAsB,gCAWrD,CAAC;AAEF,eAAO,MAAM,UAAU,GAAI,CAAC,SAAS,MAAM,CAAC,MAAM,EAAE,GAAG,CAAC,OACxB,CAAC,CAAC"}

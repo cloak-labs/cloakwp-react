@@ -1,4 +1,3 @@
-/// <reference types="react" />
 export declare const GlobalsProvider: ({ children, ...props }: {
     [x: string]: any;
     children: any;

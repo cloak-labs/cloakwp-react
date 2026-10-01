@@ -2,7 +2,6 @@
  * Wrap all generic WP `@cloakui/block-renderer` types to make them React-specific.
  * Doing so prevents users from having to mess with type parameters all over the place.
  */
-/// <reference types="react" />
 import { EmptyObjectOrRecord } from "cloakwp/blocks";
 import { RestApiBlockData, WPBlockContext, WPBlockDataWithExtraContext, WPBlockRendererConfig, WPBlocksConfig, WPDataRouter, WPGlobalDataRouter, WPSingleBlockConfig, WPSingleBlockConfigWithVariants, WPSingleBlockConfigWithoutVariants, WPVariantsRouter } from "cloakwp/blocks";
 import { ClassValue } from "@cloakui/styles";

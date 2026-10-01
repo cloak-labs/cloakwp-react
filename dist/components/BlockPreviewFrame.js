@@ -62,12 +62,17 @@ export function BlockPreviewFrame({ pathname = "", previewKey, renderBlock, init
         };
         window.addEventListener("message", handleMessages);
         sendPreviewReadyToWp(previewKey, targetOrigin);
+        // Gutenberg's editor script may miss the first ready if the canvas iframe
+        // or ACF hooks are not mounted yet. Retry so sidebar field updates have a
+        // live postMessage binding.
+        const readyRetryTimers = [50, 200, 500, 1000, 2000].map((ms) => setTimeout(() => sendPreviewReadyToWp(previewKey, targetOrigin), ms));
         const heightObserver = watchForDocumentHeightChanges({
             previewKey,
             targetOrigin,
         });
         return () => {
             renderGeneration += 1;
+            readyRetryTimers.forEach(clearTimeout);
             window.removeEventListener("message", handleMessages);
             heightObserver?.disconnect();
         };

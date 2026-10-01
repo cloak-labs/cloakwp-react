@@ -1,4 +1,3 @@
-/// <reference types="react" />
 export type LogoutFormProps = {
     action?: string;
     redirect?: string;

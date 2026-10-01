@@ -1,4 +1,3 @@
-/// <reference types="react" />
 export type LoginFormProps = {
     /** `credentials` posts to the Backend For Frontend (BFF). `redirect` is reserved for a later WP login bounce. */
     strategy?: "credentials" | "redirect";
